@@ -20,6 +20,7 @@ package multithread;
  */
 public class TestThread4 {
     public static void main(String[] args) {
+        final Object someObject = new Object();
         //final修饰引用的时候，只能指向一次
         final Hero gareen = new Hero();
         gareen.name = "盖伦";
@@ -37,6 +38,7 @@ public class TestThread4 {
                 @Override
                 public void run() {
                     gareen.recover();
+
                     try {
                         Thread.sleep(100);
                     }catch (InterruptedException e){
@@ -52,6 +54,8 @@ public class TestThread4 {
             Thread t = new Thread(){
                 @Override
                 public void run() {
+                    //使用gareen作为synchronized
+                    //在方法hurt中有synchronized(this)
                     gareen.hurt();
                     try {
                         Thread.sleep(100);
