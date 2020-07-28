@@ -24,6 +24,15 @@ public class Hero {
 
     public int damage; //定义英雄能够造成的伤害
 
+    //回血
+    public void recover(){
+        hp += 1;
+    }
+    //掉血
+    public void hurt(){
+        hp -= 1;
+    }
+
     public void attackHero(Hero h) {
 //        try {
 //            //为了表示攻击需要时间，每次攻击暂停1000毫秒
